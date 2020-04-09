@@ -1,11 +1,10 @@
-
 # Your First Data Science Codealong!
 
 ## Introduction
 
 In this codealong, you'll get your first taste of a real Data Science workflow! You'll use Jupyter Notebook to import pre-written packages, import data into your notebook from a Comma Seperated Values file (a .csv file), and you'll even get to create some plots!
 
-Don't worry if some of these terms are unfamiliar or you get confused in this codealong. Our goal here is just to give you a taste of what you'll be able to do as a Data Scientist, and afterwards, we'll go back and re-introduce all of the concepts that we skimmed over this time through. By the end of the section, you should have a much stronger understanding of this process - even if you have no previous programming experience.
+Don't worry if some of these terms are unfamiliar or you get confused in this codealong. Our goal here is just to give you a taste of what you'll be able to do with data, and afterwards, we'll go back and re-introduce all of the concepts that we skimmed over this time through. By the end of the section, you should have a much stronger understanding of this process - even if you have no previous programming experience.
 
 Just take your time to explore the data and the code!
 
@@ -17,7 +16,7 @@ You will be able to:
 ## Jupyter Notebook and Running Cells
 
 **Welcome to programming!**
-Juptyer Notebooks (historically called IPython Notebooks) will be our primary tool when analyzing data. The first thing to know with this is that each cell block [of code] can be run be pressing **shift + enter**. Try running the below code block:
+Juptyer Notebooks (historically called IPython Notebooks) will be our primary tool when analyzing data. The first thing to know with this is that each cell block [of code] can be run by clicking into the cell and pressing **shift + enter**. Try running the below code block:
 
 
 ```python
@@ -29,21 +28,21 @@ As you can see, running the code above printed text to the screen. You will lear
 ## Importing Packages
 The next thing we're going to do is load in some Python packages that will be part of our toolbox for manipulating and analyzing data. Again, don't worry if you are not sure what a Python package is. For now, just think of packages as collections of specialized tools for performing specific tasks. The standard Python package for working with data tables is called **pandas**. Below, we import this under the **alias** `pd`, which is the industry standard. This will give us a shorthand way to access special functions and methods within the package without having to type the longer name pandas. Similarly, we will also import a specialized package for plotting data called **matplotlib** under the alias `plt`. Pandas and matplotlib will be introduced in detail later. 
 
-* Again, press **shift+enter** to run the code below
+* Again, press **shift+enter** to run the code below. You should see a star show up in the empty brackets to the left of the code
 
 
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline
+print("Imported!")
 ```
 
 ## Jupyter Notebook Cell Types
 
 You might have started to notice that the code blocks have little notes that say **In [ ]:** before you run them, and then are filled with a number after you run them. This is important, as it tells you in what order the cell blocks were run. (Which can affect how a program runs.)
 
-You may also notice that other cell blocks, such as this one, do not have the **In [ ]:** label as with the code blocks. This is because this cell block is formatted as **Markdown** rather than code. The details of Markdown are not important here but just know you can use Markdown cell blocks to display text. They are really useful for embedding notes and explanations in your Jupyter Notebook. You can see (and change) what type of cell is by clicking the dropdown menu at the top:
-<img src="images/jupyter_notebook_cell_type_dropdown.png" width="750">
+You may also notice that other cell blocks, such as this one, do not have the **In [ ]:** label as with the code blocks. This is because this cell block is formatted as **Markdown** rather than code. The details of Markdown are not important here but just know you can use Markdown cell blocks to display text. They are really useful for embedding notes and explanations in your Jupyter Notebook.
 
 
 ```python
@@ -61,31 +60,12 @@ Edit mode is the standard mode for editing cells, whether it's writing code or n
 To enter edit mode from command mode simply hit enter, or double click on a cell.
 
 ### Command Mode
-In command mode, you can delete cells, add cells, copy cells, paste cells, change cell types, and more. You can also do these tasks in a more cumbersome (and time consuming) manner by using the various headers in the menu bar at top.
-<img src="images/jupyter_menu.png" width="800">
-You can also see a full list of shortcuts available in command and edit mode under the help menu.
-
-<img src="images/jupyter_help_menu.png" width="800">
-
-## Running Bash Commands
-
-We can also run bash commands just as we did before from the terminal directly within Jupyter Notebooks!  
- (Note: bash commands cannot be mixed with Python and must be in their own cell block.)   
- 
-Try it out!
-
-
-```python
-pwd
-```
-
-
-```python
-ls
-```
+In command mode, you can delete cells, add cells, copy cells, paste cells, change cell types, and more. 
 
 ## Loading a DataFrame
-Now that you've seen how to navigate Jupyter Notebook cells, you're ready to work with some data. The primary datatype within the pandas package is called a dataframe and is similar to a spreadsheet in excel. Here's a brief example illustrating how to read a csv file from your hard drive and store its contents in a dataframe:
+Now that you've seen how to navigate Jupyter Notebook cells, you're ready to work with some data. The primary datatype within the pandas package is called a dataframe and is similar to a spreadsheet in excel. Here's a brief example illustrating how to read a csv file from your hard drive and store its contents in a dataframe. Remember, hit **shift+enter** to run this code. If this worked you should see a simple table showing you all of the data. 
+
+This data set is a list of Lego Sets for purchase including pricing, star rating, and a few other details.
 
 
 ```python
@@ -108,45 +88,7 @@ When we loaded in packages in our first cell block (using the `import` commands)
 
 We demonstrated this when we used the **pd.read_csv()** method above.  
 
-This also demonstrates the **dot notation** in Python, which is how we access built in methods or attributes of a given object. Similar to what we saw with bash in the command line, we can also use **tab completion** to preview methods available in packages or other objects.  
-
-### Try this out yourself
-
-* In the cell below, navigate your cursor to the right of **pd.**
-* Press tab to see a list of available methods/attributes
-
-<img src="images/pd_methods.png" width="600">
-
-
-```python
-pd.
-```
-
-You can also start typing to subset the list of available commands:
-<img src="images/pd_read_methods.png" width="500">
-
-## Pulling up Docstrings
-
-Even better, you can even see how a method works by pulling up its **docstring**!  
-You can do this by writing **?** after the method and running the cell.
-
-<img src="images/docstring.png" width="800"> 
-
-
-Try it out!
-
-
-```python
-pd.read_csv?
-```
-
-Alternatively, you can pull up a preview of the docstring by pressing **shift+tab within the parentheses of a method**
-<img src="images/docstring_preview.png" width="800">
-
-
-```python
-pd.read_csv() #Move your cursor inside the parentheses and press shift+tab
-```
+This also demonstrates the **dot notation** in Python, which is how we access built in methods or attributes of a given object. 
 
 ## Variables
 
@@ -191,13 +133,17 @@ As you can see, the variable **df** is a DataFrame object (which is part of the 
 
 
 ```python
-#Practice using some of these methods
+df.head()#Practice using some of these methods
 ```
 
 
 ```python
-#Use tab completion to investigate at least 3 other methods of the df object. 
-#Pull up their docstrings and investigate what they do.
+df.tail(10)
+```
+
+
+```python
+ # now is your turn. Type in the df.info() below this line and press shift+enter to see column info below
 ```
 
 ## Pandas Series
@@ -212,7 +158,9 @@ or
 
 First note that in `df['col_name']` we need 'quotations' around the column name. The quotations denote the column name is a **string**, Python's built in variable type for storing text. This can alternatively be replaced with double quotes `df["col_name"]`. In general, anything in quotations is a string in Python code. Occasionally, with very ill formatted column names with quotations in the names themselves, you may even need to wrap a name in triple quotes `df["""col_name"""]` . This will rarely happen in this particular context, but it's the general pattern for dealing with messy strings.   
 
-Note that the second way, `df.col_name`, will only work if there are no spaces within the name of the column. Similar to tab completion with the command line, this is a primary reason why programmers use dashes (-) and underscores (_) in lieu of whitespace in their variable and file names. Also note that no quotations are used when using this format. (The column names have been stored as attributes of the DataFrame object!)
+Note that the second way, `df.col_name`, will only work if there are no spaces within the name of the column. This is a primary reason why programmers use dashes (-) and underscores (_) in lieu of whitespace in their variable and file names. Also note that no quotations are used when using this format. (The column names have been stored as attributes of the DataFrame object!).
+
+Run each cell with shift+enter
 
 
 ```python
@@ -221,7 +169,7 @@ Note that the second way, `df.col_name`, will only work if there are no spaces w
 
 
 ```python
-df.head(2) #preview your spreadsheet again; 2 keeps it a nice small preview
+df.head(2) #preview your spreadsheet again; 2 keeps it a nice small preview. shift+enter to run
 ```
 
 
@@ -247,22 +195,21 @@ While we could have also used `df.State.head()`, slicing works for many more dat
 
 
 ```python
-df.piece_count.
+df.piece_count
 ```
 
 ## Common Series Methods
 Some very useful series methods include those for obtaining basic summary statistics:  
-* `series.mean()` 
-* `series.median()` 
-* `series.min()` 
-* `series.max()` 
+* `df.play_star_rating.mean()` 
+* `df.play_star_rating.median()` 
+* `df.play_star_rating.min()` 
+* `df.play_star_rating.max()` 
 
-There are several more but this is a very good starting point.
-Start pulling up some docstrings (using shift+tab within parentheses!) and getting acquainted with reading them yourself before we go through a few of these methods together. You can also consult the [documentation.](https://pandas.pydata.org/pandas-docs/stable/reference/series.html)
+Go ahead and copy paste each item into the cells below and see what they return
 
 
 ```python
-df.play_star_rating.value_counts() #Read the docstring and tinker! See how it works.
+df.play_star_rating.mean() 
 ```
 
 
@@ -273,7 +220,7 @@ df.play_star_rating.value_counts() #Read the docstring and tinker! See how it wo
 ## Graphing
 
 Our bread and butter tool for graphing in Python will be **matplotlib**. 
-There are a number of other packages you can also check out for visualization later on such as plotly, folium, and bokeh to name a few, but matplotlib is an industry standard used widely. As with the pandas package, we must import  the matplotlib package to use its built in functions and methods. Rather then import the entire package however, we import only the piece we intend to use (hence the dot notation) and again alias this under the shorthand *plt*. Finally, the Jupyter magic command **% matplotlib inline** makes these graphs appear within our jupyter notebook.
+There are a number of other packages you can also check out for visualization later on such as plotly, folium, and bokeh to name a few, but matplotlib is an industry standard used widely. As with the pandas package, we must import  the matplotlib package to use its built in functions and methods. Rather then import the entire package however, we import only the piece we intend to use (hence the dot notation) and again alias this under the shorthand *plt*. Finally, the Jupyter magic command **% matplotlib inline** makes these graphs appear within our jupyter notebook. Just run these cells with shift+enter so see a graph of the themes for lego sets.
 
 
 ```python
